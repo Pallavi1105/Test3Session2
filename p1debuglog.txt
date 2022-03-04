@@ -1,1 +1,108 @@
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x85e: file p1final.c, line 25.
+(gdb) r
+Starting program: /home/runner/Test3Session2-2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:25
+25  {
+(gdb) n
+27    input(&num1,&den1,&num2,&den2);
+(gdb) s
+input (num1=0x7fff75036d50, den1=0x7fff75036d54, num2=0x7fff75036d58, 
+    den2=0x7fff75036d5c) at p1final.c:4
+4     printf("enter the values");
+(gdb) n
+5     scanf("%d%d%d%d",num1,den1,num2,den2);
+(gdb) n
+enter the values1 4 1 2
+6   }
+(gdb) p *num1
+$1 = 1
+(gdb) p *den1
+$2 = 4
+(gdb) p *num2
+$3 = 1
+(gdb) p *den2
+$4 = 2
+(gdb) n
+main () at p1final.c:28
+28    add(num1,den1,num2,den2,&num3,&den3);
+(gdb) s
+add (num1=1, den1=4, num2=1, den2=2, num3=0x7fff75036d60, den3=0x7fff75036d64)
+    at p1final.c:10
+10    x=(num1*den2)+(num2*den1);
+(gdb) n
+11    y=(den1*den2);
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+15        gcd=c;
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+15        gcd=c;
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+14        if(x%c==0 && y%c==0)
+(gdb) n
+12    for(c=1;c<=x && c<=y;++c)
+(gdb) n
+17    *num3=x/gcd;
+(gdb) n
+18    *den3=y/gcd;
+(gdb) n
+19  }
+(gdb) p *num3
+$5 = 3
+(gdb) p *den3
+$6 = 4
+(gdb) n
+main () at p1final.c:29
+29    output(num1,den1,num2,den2,num3,den3);
+(gdb) s
+output (num1=1, den1=4, num2=1, den2=2, num3=3, den3=4) at p1final.c:22
+22    printf("%d/%d + %d/%d = %d/%d",num1,den1,num2,den2,num3,den3);
+(gdb) n
+23  }
+(gdb) n
+main () at p1final.c:30
+30    return 0;
+(gdb) c
+Continuing.
+1/4 + 1/2 = 3/4[Inferior 1 (process 831) exited normally]
+(gdb) 
